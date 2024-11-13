@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import Login from "../Componets/AuthenticationFiles/login";
+
 function Navbar() {
   const [isLoginset, setLoginset] = useState(false);
-  const handleLoginClick = () => {
-    setLoginset(true);
+
+  const handleLoginClick = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevents the default action to avoid page reload
+    setLoginset(true); // Opens the Login component
+  };
+
+  const handleCloseLogin = () => {
+    setLoginset(false); // Closes the Login component
   };
 
   return (
@@ -33,7 +40,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Link
+                Admin
               </a>
             </li>
             <li className="nav-item dropdown">
@@ -88,7 +95,7 @@ function Navbar() {
             </button>
           </form>
         </div>
-        {isLoginset && <Login />}
+        {isLoginset && <Login onClose={handleCloseLogin} />}
       </nav>
     </>
   );

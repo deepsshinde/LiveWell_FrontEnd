@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../../../src/css/registration.css";
-const Registration = () => {
+type RegisterProps = {
+  onClose: () => void;
+};
+const Registration = ({ onClose }: RegisterProps) => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -11,6 +14,9 @@ const Registration = () => {
   return (
     <div className="registration-container">
       <form className="registration-form">
+        <button className="close-button" onClick={onClose}>
+          &times;
+        </button>
         <h2>Register</h2>
 
         <label>Username</label>

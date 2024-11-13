@@ -1,22 +1,32 @@
 import React, { useState } from "react";
 import "../../../src/css/login.css"; // Import the CSS file for custom styling
 import Registration from "./register";
-function Login() {
+type LoginProps = {
+  onClose: () => void;
+};
+
+function Login({ onClose }: LoginProps) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isRegisterClicked, setisRegisteredClicked] = useState(false);
-  function handleRegisterclick() {
+  function handleRegisterClick(e: React.MouseEvent) {
+    e.preventDefault();
     setisRegisteredClicked(true);
   }
-  const handleSubmit = () => {
+  function closeRegister() {
+    setisRegisteredClicked(false);
+  }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); // Prevent form from reloading the page
     alert("Login");
   };
-
   return (
     <>
       <div className="login-overlay">
         <div className="login-box">
-          <button className="close-button">&times;</button>
+          <button className="close-button" onClick={onClose}>
+            &times;
+          </button>
           <h2>Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -42,13 +52,13 @@ function Login() {
             <button type="submit" className="btn btn-primary">
               Login
             </button>
-            <button className="btn" onClick={handleRegisterclick}>
+            <button className="btn" onClick={handleRegisterClick}>
               New User
             </button>
           </form>
         </div>
       </div>
-      {isRegisterClicked && <Registration />}
+      {isRegisterClicked && <Registration onClose={closeRegister} />}
     </>
   );
 }
