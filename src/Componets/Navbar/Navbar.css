@@ -1,0 +1,42 @@
+/* Style for the navbar container */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
+
+.bg{
+    color: #e2e2e2;
+}
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Center the nav items */
+  .center-nav-items {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+   
+  }
+  
+  /* Optional styling to adjust the navbar-brand or other items */
+  .navbar-brand {
+    margin-right: auto;
+    font-family: 'rubik', sans-serif;
+    font-size: 700;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+  
+  .navbar-nav .nav-item {
+    margin: 0 15px; /* Add some spacing between nav items */
+  }
+  
+  .form-inline {
+    margin-left: auto;
+  }
+  

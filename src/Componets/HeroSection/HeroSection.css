@@ -1,0 +1,27 @@
+/* HeroSection.css */
+.hero {
+    position: relative;
+    padding: 80px 20px;
+    background-image: url('/path/to/your-image.jpg'); /* Replace with actual path */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    text-align: left;
+  }
+  
+  .hero h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .hero p {
+    font-size: 20px;
+    color: #555;
+  }
+  
+  .hero span {
+    font-size: 16px;
+    color: #aaa;
+  }
+  
