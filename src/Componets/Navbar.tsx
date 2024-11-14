@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Login from "../Componets/AuthenticationFiles/login";
-
+import AddRoom from "./AdminComponents/add_room";
 function Navbar() {
   const [isLoginset, setLoginset] = useState(false);
-
+  const [isRoomvisible, setRommvisible] = useState(false);
   const handleLoginClick = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevents the default action to avoid page reload
     setLoginset(true); // Opens the Login component
@@ -12,7 +12,9 @@ function Navbar() {
   const handleCloseLogin = () => {
     setLoginset(false); // Closes the Login component
   };
-
+  const handleRoom = () => {
+    setRommvisible(true);
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -39,7 +41,7 @@ function Navbar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="#" onClick={handleRoom}>
                 Admin
               </a>
             </li>
@@ -60,11 +62,11 @@ function Navbar() {
                   Action
                 </a>
                 <a className="dropdown-item" href="#">
-                  Another action
+                  About us
                 </a>
                 <div className="dropdown-divider"></div>
                 <a className="dropdown-item" href="#">
-                  Something else here
+                  Features
                 </a>
               </div>
             </li>
@@ -96,6 +98,7 @@ function Navbar() {
           </form>
         </div>
         {isLoginset && <Login onClose={handleCloseLogin} />}
+        {isRoomvisible && <AddRoom />}
       </nav>
     </>
   );
