@@ -1,24 +1,11 @@
 import React, { useState } from "react";
 import Login from "../Componets/AuthenticationFiles/login";
-<<<<<<< HEAD
+import AddRoom from "./AdminComponents/add_room";  // Added AddRoom import
 
-function Navbar() {
-  const [isLoginset, setLoginset] = useState(false);
-
-  const handleLoginClick = (e: React.MouseEvent) => {
-    e.preventDefault(); // Prevents the default action to avoid page reload
-    setLoginset(true); // Opens the Login component
-  };
-
-  const handleCloseLogin = () => {
-    setLoginset(false); // Closes the Login component
-  };
-
-=======
-import AddRoom from "./AdminComponents/add_room";
 function Navbar() {
   const [isLoginset, setLoginset] = useState(false);
   const [isRoomvisible, setRommvisible] = useState(false);
+
   const handleLoginClick = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevents the default action to avoid page reload
     setLoginset(true); // Opens the Login component
@@ -27,10 +14,11 @@ function Navbar() {
   const handleCloseLogin = () => {
     setLoginset(false); // Closes the Login component
   };
+
   const handleRoom = () => {
-    setRommvisible(true);
+    setRommvisible(true); // Opens the AddRoom component
   };
->>>>>>> eaa2e992fb02ac02fa2a917468e96ef3161f7da7
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -57,11 +45,7 @@ function Navbar() {
               </a>
             </li>
             <li className="nav-item">
-<<<<<<< HEAD
-              <a className="nav-link" href="#">
-=======
               <a className="nav-link" href="#" onClick={handleRoom}>
->>>>>>> eaa2e992fb02ac02fa2a917468e96ef3161f7da7
                 Admin
               </a>
             </li>
@@ -82,19 +66,11 @@ function Navbar() {
                   Action
                 </a>
                 <a className="dropdown-item" href="#">
-<<<<<<< HEAD
-                  Another action
-                </a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">
-                  Something else here
-=======
                   About us
                 </a>
                 <div className="dropdown-divider"></div>
                 <a className="dropdown-item" href="#">
                   Features
->>>>>>> eaa2e992fb02ac02fa2a917468e96ef3161f7da7
                 </a>
               </div>
             </li>
@@ -126,10 +102,7 @@ function Navbar() {
           </form>
         </div>
         {isLoginset && <Login onClose={handleCloseLogin} />}
-<<<<<<< HEAD
-=======
-        {isRoomvisible && <AddRoom />}
->>>>>>> eaa2e992fb02ac02fa2a917468e96ef3161f7da7
+        {isRoomvisible && <AddRoom />} {/* Renders AddRoom if the state is true */}
       </nav>
     </>
   );
